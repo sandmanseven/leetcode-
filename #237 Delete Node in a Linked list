@@ -1,2 +1,21 @@
 time complexity O(1)
 space complexity O(1)
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) { val = x; }
+ * }
+ */
+public class Solution {
+    public void deleteNode(ListNode node) {
+        node.val = node.next.val;
+        node.next = node.next.next;
+    }
+}
+
+/* delete the node in the linked list,the object which given is the node you need to delete.So we must maintain the linked list is still
+the proper linked list.And may connect the node next to the node prev.And the special case [0,1] index 0, so node.val=node.next.val is 
+important,because it does not have node.next.next.
+*/
