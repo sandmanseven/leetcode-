@@ -1,0 +1,11 @@
+//time complexity O(logn)
+//space complexity O(1)
+public int trailingZeroes(int n) {
+        return n == 0 ? 0 : n / 5 + trailingZeroes(n / 5);
+    }
+/*
+first we must consider the corner case n=0 ,in that case should return 0
+you need to find how many 5 in the list and for example 25 it contains 5*5 and 50 it contains 5*5*2
+so we must divide the n until 0 and we also need to record all the quotient we divided 
+so we can use recursion to do this.
+ */   
