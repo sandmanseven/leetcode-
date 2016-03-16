@@ -1,0 +1,26 @@
+//time complexity O(1)
+//space complexity O(1)
+public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+        int areaA=(C-A)*(D-B);
+        int areaB=(G-E)*(H-F);
+        // if(G>=A||E>=C||F>=D||H<=B){
+        //     return (C-A)*(D-B)+(G-E)*(H-F);
+        // }
+        int overlap=0;
+        int left=Math.max(A,E);
+        int right=Math.min(C,G);
+        int bottom=Math.max(F,B);
+        int top=Math.min(D,H);
+        if(right>left&&top>bottom){
+        overlap=(right-left)*(top-bottom);
+        }
+        return areaA+areaB-overlap;
+   }
+   /*
+   first we need to consider two situation ,one is the rectangles are not overlap,just calculate the area
+   and add is fine.
+   the other one is the rectangles are overlap.
+   and we need to calculate the overlap area.
+   so just draw the picture and find the max of the left corner and the min of the right corner.
+   so the overlap situation is the left corner is below the right corner
+   */
