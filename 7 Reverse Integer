@@ -1,5 +1,5 @@
-//time complexity O(logn)
-//space complexity O(X)???
+//time complexity O(n)
+//space complexity O(1)
    public int reverse(int x){
    long res=0;
    while(x!=0){
