@@ -1,0 +1,24 @@
+//time complexity O(n);
+//space complexity O(n);
+public void moveZeros(int [] nums){
+   int j=0;
+   for(int i=0;i<nums.length;i++){
+   if(nums[i]!=0){
+   swap(i,j,nums);
+   j++;
+   }
+  }
+  public void swap(int i,int j,int [] nums){
+  int temp=nums[i];
+  nums[i]=nums[j];
+  nums[j]=temp;
+  }
+  
+  /*
+  this program must use O(n) space ,we can not copy the array,so we must use swap method,be careful of the swap method 
+  grammer.(int i,int j,int [] nums) especially ,we swap in the array,so int [] nums is mandatory.
+  and use two pointer to swap the numbers in the array.
+  And the pointer i should detect the number which is zero and swap with j;
+  when meet 0 0 and  i may ++
+  and the nums[i]!=0 , so swap
+  */
