@@ -1,0 +1,23 @@
+//time complexity O(logn)
+//space complexity O(X)???
+   public int reverse(int x){
+   long res=0;
+   while(x!=0){
+   res=res*10+x%10;
+   x=x/10;
+   if(res>Integer.MAX_VALUE||res<Integer.MIN_VALUE){
+   return 0;
+   }
+   }
+   return (int)res;
+   }
+   }
+   
+   /*
+   for this problem,reverse the integer,so we must consider the digits and the sign of it.
+   and we need a variable res to store the information of every reversed digit
+   most critical thing is that we must consider the overfloat situation
+   so the res must be long type
+   and must be maintained below the Integer.MAX_VALUE and over Integer.MIN_VALUE
+   and for the record do not make typo of the Integer.MAX_VALUE and Integer.MIN_VALUE;
+   */
