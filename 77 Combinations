@@ -22,4 +22,6 @@ recursive function to get the second or the third one by the perimeter k.
 and we need to get back when k==0,and add row to the res and return
 and remove row.size()-1.
 so we can avoid the repetition.
+1-2,1-3,1-4
+row.remove(n)  n is the n-1th item in the array
 */
