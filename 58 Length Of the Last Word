@@ -1,0 +1,11 @@
+//time complexity O()
+//time complexity O(1)
+public int lengthOfLastWord(String s) {
+    s = s.trim();
+    int lastIndex = s.lastIndexOf(' ') + 1;
+    return s.length() - lastIndex;  
+    /* trim to get rid of the space of start and the end of the string
+    and lastIndex(' ') to detect the last space in the string just ahead of the last word
+    and because the index start with 0 so +1
+    and use the whole length minus the last space
+    */
