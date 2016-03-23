@@ -1,0 +1,31 @@
+//time complexity O(n)
+//space complexity O(1)
+public int [] singleNumber(int [] nums){
+  //traverse the array and XOR every element, you can get the result that two single number XOR result
+  //for example,result=6(3^5)
+  int result=nums[0];
+  for(int i=1;i<nums.length;i++){
+  result=result^nums[i];
+  }
+  //notice that 6^3=5 6^5=3
+  //now how to find 3 and 5 from 6
+  int r[]=new int [2];
+  //find the lowest bit of the result
+  //6(0110),6 反码 1001，6补码＝反码＋1=1010 =0010
+  //lowbit is that the result&-result to find from the lowest to the highest digit
+  //the first not 0 number so 0010 is the second digit,
+  //use that digit a&lowbit b& lowbit to divide the array into two parts
+  //each parts contain one of the single numbers
+  int lowbit=result&-result;
+  for(int i=0;i<nums.length;i++){
+  if(nums[i]&lowbit)==0){
+  r[0]=r[0]^nums[i];
+  }
+  else r[1]=r[1]^nums[i];
+  }
+  return r;
+  }
+  /* 3 0011
+    5 0101 so the second digit is not the same so that they can XOR 1  and use lowdit to determine which one
+    contain 1 and 0
+    */
