@@ -1,0 +1,33 @@
+//O(n)
+//O(n)
+
+/**
+ * Definition for singly-linked list with a random pointer.
+ * class RandomListNode {
+ *     int label;
+ *     RandomListNode next, random;
+ *     RandomListNode(int x) { this.label = x; }
+ * };
+ */
+public class Solution {
+    public RandomListNode copyRandomList(RandomListNode head) {
+       if(head==null){
+           return null;
+       }
+       RandomListNode p=head;
+       Map<RandomListNode,RandomListNode> map=new HashMap<RandomListNode,RandomListNode>();
+       while(p!=null){
+           map.put(p,new RandomListNode(p.label));
+           p=p.next;
+       }
+       p=head;
+       //really important  you need to get back to the head
+       while(p!=null){
+           map.get(p).next=map.get(p.next);
+           map.get(p).random=map.get(p.random);
+           p=p.next;
+       }
+       return map.get(head);
+       //return head just return to the original one you need to get back to the copy one
+    }
+}
