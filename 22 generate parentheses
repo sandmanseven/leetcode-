@@ -1,0 +1,20 @@
+ public List<String> generateParenthesis(int n) {
+        List<String> res=new ArrayList<String>();
+        if(n==0){
+            return res;
+        }
+        backtrack(res,"",0,0,n);
+        return res;
+    }
+    public void backtrack(List<String>res,String str,int right,int left,int max){
+        if(str.length()==max*2){
+            res.add(str);
+        }
+        if(right<max){
+            backtrack(res,str+'(',right+1,left,max);
+        }
+        if(left<right){
+            backtrack(res,str+')',right,left+1,max);
+        }
+    }
+    
