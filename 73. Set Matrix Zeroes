@@ -1,0 +1,53 @@
+public void setZeroes(int[][] matrix) {
+        if(matrix==null||matrix.length==0){
+            return;
+        }
+        boolean setFirstRowToZeros=false;
+        boolean setFirstColumnToZeros=false;
+        for(int row=0;row<matrix.length;row++){
+            if(matrix[row][0]==0){
+                setFirstColumnToZeros=true;
+                break;
+            }
+        }
+        for(int col=0;col<matrix[0].length;col++){
+            if(matrix[0][col]==0){
+                setFirstRowToZeros=true;
+                break;
+            }
+        }
+        for(int row=1;row<matrix.length;row++){
+            for(int col=1;col<matrix[0].length;col++){
+                if(matrix[row][col]==0){
+                    matrix[row][0]=0;
+                    matrix[0][col]=0;
+                }
+            }
+        }
+        for(int row=1;row<matrix.length;row++){
+            if(matrix[row][0]==0)
+            for(int col=1;col<matrix[0].length;col++){
+                matrix[row][col]=0;
+            }
+        }
+        for(int col=1;col<matrix[0].length;col++){
+            if(matrix[0][col]==0)
+            for(int row=1;row<matrix.length;row++){
+                matrix[row][col]=0;
+            }
+        }
+        if(setFirstColumnToZeros){
+            for(int row=0;row<matrix.length;row++){
+                matrix[row][0]=0;
+            }
+        }
+        if(setFirstRowToZeros){
+            for(int col=0;col<matrix[0].length;col++){
+                matrix[0][col]=0;
+            }
+        }
+    }
+    /*this first and two consider the first row and column in the corner case.
+    and the second one is to set the row 0 and 0 col equals to zero
+    and the 3 4 to change the row and col to zero
+    */
