@@ -1,0 +1,24 @@
+ public List<Interval> insert(List<Interval> intervals, Interval newInterval) {
+        List<Interval> res=new ArrayList<Interval>();
+        for(Interval i:intervals){
+            if(newInterval==null||i.end<newInterval.start){
+                res.add(i);
+            }
+            else if(i.start>newInterval.end){
+                res.add(newInterval);
+                res.add(i);
+                newInterval=null;
+            }else{
+                newInterval.start=Math.min(i.start,newInterval.start);
+                newInterval.end=Math.max(i.end,newInterval.end);
+            }
+        }
+        if(newInterval!=null){
+            res.add(newInterval);
+        }
+        return res;
+    }
+    /*first to detact the interval which is less than i
+    second to detact the interval which is larger than newInterval
+    third to detact the newInterval which is across the i and update the newInterval to continue the for loop
+    */
