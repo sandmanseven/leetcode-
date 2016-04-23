@@ -1,0 +1,22 @@
+public String longestCommonPrefix(String[] strs) {
+        if (strs == null) 
+            return null;
+        if (strs.length == 0) 
+            return "";
+
+        Arrays.sort(strs);
+        char[] first = strs[0].toCharArray();
+         char[] last  = strs[strs.length - 1].toCharArray();
+
+        int i = 0, len = Math.min(first.length, last.length);
+        while (i < len && first[i] == last[i]) 
+            i++;
+        return strs[0].substring(0, i);
+    }
+    /*abc ac abcd 
+    sort 
+    abc abcd ac
+    so we just deal with the first and the last
+    so mind the len length
+    and i++
+    so the substring will get the things before i*/
